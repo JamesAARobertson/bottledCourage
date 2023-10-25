@@ -100,9 +100,9 @@ p {
     transition: background-color 0.3s ease;
 }
 
-
-
-
+.bottleMessage{
+    height: 1rem;
+}
 
 /* This is animating the message in a bottle button */
 #send-message-button:active {

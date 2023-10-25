@@ -6,9 +6,23 @@ const submitButton = document.getElementById("send-message-button");
 
 submitButton.addEventListener("click", function(){
 
-    alert("Message in a bottle clicked!")
-})
+    const existingInput = document.getElementById("myTextbox");
 
+    if (!existingInput){
+        
+    }
+
+    const inputElement = document.createElement("input");
+
+    // Set attributes for the input element
+    inputElement.type = "text";    // Text input
+    inputElement.id = "bottleMessage";  // ID for reference
+    inputElement.name = "userInput"; // Name attribute
+
+    // Add the input element to the container div
+    const container = document.getElementById("textbox");
+    container.appendChild(inputElement);
+})
 // Text box has max character limit
 
 // add submit/send button for sending message, on click. Send button changes blue. Text box then disappears.
