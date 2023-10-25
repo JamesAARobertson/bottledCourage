@@ -1,20 +1,21 @@
 // on hover over Message in a bottle, change color/highlight.
 async function getBottle() {
-    const responseRequest = await fetch("/", {
-        headers: {
-            Accept: "application/json",
-        },
-    });
+        const responseRequest = await fetch("http://localhost:3500/api/", {
+                method: `GET`,
+                headers: {
+                    Accept: "application/json",
+                },
+            });
 
-     if (!responseRequest.ok) {
+    if (!responseRequest.ok) {
         console.error(`Status: ${responseRequest.status}`);
         console.error(`Text: ${await responseRequest.text()}`);
         console.error("Data not available");
         return;
-    } 
-     const responseData = await responseRequest.json(); 
+    }
+    const responseData = await responseRequest.json();
     console.log(responseRequest);
-     console.log(responseData); 
+    console.log(responseData.payload);
 }
 
 getBottle();
