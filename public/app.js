@@ -1,11 +1,25 @@
 // on hover over Message in a bottle, change color/highlight.
 async function getBottle(){
-const responseRequest = await fetch ("http://localhost:3000/",
-
+const responseRequest = await fetch ("http://127.0.0.1:5501",
+{
+    headers: {
+        Accept: "application/json",
+    },
+}
 
 )
-console.log(responseRequest)
+
+if (!responseRequest.ok) {
+    console.error(`Status: ${responseRequest.status}`);
+    console.error(`Text: ${await responseRequest.text()}`);
+    console.error('Data not available');
+    return;
+  }
+  const responseData = await responseRequest.json();
+  console.log(responseData)
 }
+
+
 
 getBottle();
 // get Message in a bottle button by id. On click opens up input/textbox. Open's keyboard.
