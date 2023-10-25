@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>bottledCourage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>bottledCourage</title>
 </head>
 <body>
-  <script src="app.js">
+    <h1>Today's Reflections</h1>
 
-  </script>
+    <div class="original-message-div"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra sit amet leo a finibus.
+        Fusce ac vulputate enim. Donec in nunc eu magna eleifend fermentum ac condimentum tellus.</p>
+
+        <div class="bottle-post-div"><p class="bottle-post-p"></p></div>
+
+            <div id="bottle-reply-1" class="bottle-replies-div"><p class="bottle-replies-p">I feel like I'm not progressing with...</p></div>
+            <div id="bottle-reply-2" class="bottle-replies-div"><p class="bottle-replies-p">Message 2</p></div>
+            <div id="bottle-reply-3" class="bottle-replies-div"><p class="bottle-replies-p">Message 3</p></div>
+            <div id="bottle-reply-4" class="bottle-replies-div"><p class="bottle-replies-p">Message 4</p></div>
+
+            <div id="replies-background-buffer"></div>
+
+        </div>
+
+
+    <div id="submit-container">
+    <div id="send-message-div">
+        <button type="submit" id="send-message-button">Message in a bottle</button>
+    </div>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>

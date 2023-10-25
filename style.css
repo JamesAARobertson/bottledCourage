@@ -1,0 +1,111 @@
+body {
+font-family: Arial, Helvetica, sans-serif;
+max-width: 100%;
+max-height: 100%;
+margin: 0px;
+
+}
+
+h1 {
+margin-top: 1rem;
+margin-left: 1rem;
+margin-top: 2rem;
+margin-bottom: 2rem;
+font-size: 1.2rem;
+letter-spacing: 0.2rem;
+}
+
+.original-message-div {
+width: auto;
+border: 1px rgb(116, 116, 116) solid;
+border-radius: 2rem;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+padding: 1rem;
+padding-top: 3rem;
+padding-bottom: 3rem;
+text-align: center;
+height: 100vh;
+max-height: 100vh;
+background-color: #979797;
+}
+
+.bottle-replies-div{
+border: 1px black solid;
+border-radius: 2rem;
+padding: 2rem;
+text-align: center;
+max-height: 100vh;
+margin-left: 2vw;
+margin-right: 2vw;
+margin-top: 2vh;
+margin-bottom: 2vh;
+
+}
+
+#replies-background-buffer{
+    padding: 20vh;
+}
+
+p {
+    margin: auto;
+    padding: auto;
+    line-height: 1.4rem;
+}
+
+#submit-container{
+    display: flex;
+    justify-content: center;
+}
+
+#send-message-div {
+    height: 20vh;
+    max-width: 100%;
+    width: 100%;
+    border: 1px black solid;
+    border-radius: 2rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #707070;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
+
+#send-message-button{
+    padding: 1rem;
+    max-width: 100%;
+    min-width: 50%;
+    border-radius: 0.5rem;
+    border: black 0.1rem solid;
+    box-shadow: 5px 5px 5px rgba(92, 92, 92, 50);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+
+
+#send-message-button:active {
+    animation: shake 1s cubic-bezier(0.36, 2.01, 0.58, 1) both;
+
+    background-color: rgb(88, 178, 168);
+}
+
+
+@keyframes shake {
+    10%, 90% {
+        transform: translateX(-2px);
+    }
+    20%, 80% {
+        transform: translateX(2px);
+    }
+    30%, 50%, 70% {
+        transform: translateX(-2px);
+    }
+    40%, 60% {
+        transform: translateX(2px);
+    }
+}
