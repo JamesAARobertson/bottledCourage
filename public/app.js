@@ -15,7 +15,7 @@ async function getBottle() {
     }
     const responseData = await responseRequest.json();
     console.log(responseRequest);
-    console.log(responseData.payload);
+    console.log(responseData.payload[0]["message"]);
 }
 
 getBottle();
