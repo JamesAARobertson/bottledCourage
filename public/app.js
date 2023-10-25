@@ -1,8 +1,13 @@
 // on hover over Message in a bottle, change color/highlight.
 async function getBottle(){
-const responseRequest = await fetch ("http://localhost:3000/"
+const responseRequest = await fetch ("http://localhost:3000/",
+
+
+)
 console.log(responseRequest)
-)}
+}
+
+getBottle();
 // get Message in a bottle button by id. On click opens up input/textbox. Open's keyboard.
 const submitButton = document.getElementById("send-message-button");
 
