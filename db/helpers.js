@@ -1,8 +1,8 @@
 import { pool } from "../server.js"
 
 /**
- * 
- * @param {{ message: string; timestamp: string}[]} data 
+ *
+ * @param {{ message: string; timestamp: string}[]} data
  */
 
 export async function resetAllTables(data) {
@@ -16,7 +16,7 @@ export async function resetAllTables(data) {
         `);
 
         const inserted = await pool.query(`
-        
+
         INSERT INTO messages (
                 message,
                 timestamp

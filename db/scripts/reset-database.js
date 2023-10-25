@@ -1,4 +1,4 @@
-import { pool } from "../../server.js";
+import { pool } from "../index.js";
 import { resetAllTables } from "../helpers.js";
 
 try {
