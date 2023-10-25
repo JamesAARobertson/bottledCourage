@@ -7,7 +7,13 @@ export async function getAllBottles() {
     return bottles;
 }
 
-// console.log(await getAllBottles())
+export async function getBottleById(bottleId) {
+        const sqlQuery = "SELECT * FROM bottles WHERE id = $1;";
+        const paramValues = [bottleId]
+        const result = await pool.query(sqlQuery, paramValues)
+        const bottle = result.rows[0]
+        return bottle;
+}
 
 export async function createBottle(newBottle) {
     const sqlQuery = "INSERT INTO bottles (message, timestamp) VALUES ($1, $2) RETURNING *;";
@@ -17,7 +23,7 @@ export async function createBottle(newBottle) {
     return createdBottle;
 }
 
-export async function deleteBottle() {
+export async function deleteBottle(bottleId) {
     const sqlQuery = "DELETE FROM bottles WHERE id = $1 RETURNING *;";
     const paramValues = [bottleId]
     const result = await pool.query(sqlQuery, paramValues);
@@ -34,5 +40,5 @@ export async function getRandomBottles() {
     return bottles
 }
 
-console.log(await getRandomBottles())
+// console.log(await getRandomBottles())
 
