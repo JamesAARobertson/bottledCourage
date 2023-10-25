@@ -5,7 +5,9 @@ max-height: 100%;
 margin: 0px;
 
 }
-
+#header-container{
+    display:flex;
+}
 /* Today's reflections line 11*/
 h1 {
 margin-top: 1rem;
@@ -17,7 +19,7 @@ letter-spacing: 0.2rem;
 }
 
 figure img {
-    width: 0.5rem;
+    width: 20vw;
 }
 
 /* How the first the quotes appear line 13 */
