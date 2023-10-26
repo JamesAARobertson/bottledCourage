@@ -20,26 +20,17 @@ buttonToOpenTextBox.addEventListener("click", function () {
     textboxForMessage.id = "textboxForMessage"; // ID for reference
     textboxForMessage.name = "usertextarea"; // Name attribute
     textboxForMessage.placeholder =
-        "Write a message in your bottle... (Max 100 characters)"; // Placeholder text in textarea
+        "Write a message in your bottle... (Max 255 characters)"; // Placeholder text in textarea
 
     divForNewMessageTextbox.appendChild(textboxForMessage);
 
     buttonToSendMessageToServer.hidden = false;
 
-/*     //create send button when message input box is created
-    buttonToSendMessageToServer.type = "button";
-    buttonToSendMessageToServer.id = "buttonToSendMessageToServer";
-    buttonToSendMessageToServer.value = "Send";
-
-    const divForSendMessageButton = document.getElementById(
-        "divForSendMessageButton"
-    );
-    divForSendMessageButton.appendChild(buttonToSendMessageToServer); */
 });
 
 const PORT = 4000;
 // fetch bottle
-async function getBottle() {
+async function getBottles() {
     const responseRequest = await fetch(`http://localhost:${PORT}/api/`, {
         method: `GET`,
         headers: {
@@ -55,8 +46,27 @@ async function getBottle() {
     }
     const responseData = await responseRequest.json();
 
-    console.log(await responseData.payload[0]["message"]);
+    const arrayOfBottleMessages = [
+        responseData.payload[0]["message"],
+        responseData.payload[1]["message"],
+        responseData.payload[2]["message"]
+    ]
+
+    const firstBottleContainer = document.getElementById("bottle-reply-1");
+    firstBottleContainer.innerHTML = arrayOfBottleMessages[0]
+
+    const secondBottleContainer = document.getElementById("bottle-reply-2");
+    secondBottleContainer.innerHTML = arrayOfBottleMessages[1]
+
+    const thirdBottleContainer = document.getElementById("bottle-reply-3");
+    thirdBottleContainer.innerHTML = arrayOfBottleMessages[2]
 }
+// event lister to collect bottles on page load
+window.addEventListener("load", (event) => {
+    console.log("page is fully loaded")
+    getBottles()
+  });
+// getBottles()
 
 async function postBottle(message) {
     fetch(`http://localhost:${PORT}/api/`, {
@@ -83,58 +93,3 @@ buttonToSendMessageToServer.addEventListener("click", async () => {
         postBottle(textboxForMessage.value);
 
 });
-
-/* // On click opens up input/textbox.
-buttonToOpenTextBox.addEventListener('click', function () {
-  // create textarea for user to write new message in
-  newBottleInput = document.createElement('textarea');
-  // create new send/submit button
-
-  // remove "Message in a bottle" button.
-  newBottleMessage.remove();
-
-  // Set attributes for the input/textarea element
-  newBottleInput.type = 'text'; // Text input
-  newBottleInput.id = 'bottle-message-textarea'; // ID for reference
-  newBottleInput.name = 'usertextarea'; // Name attribute
-  newBottleInput.placeholder =
-    'Write a message in your bottle... (Max 100 characters)'; // Placeholder text in textarea
-
-
-  messageInput.appendChild(newBottleInput);
-}); */
-
-/* // postBottle;
-newBottleMessage.addEventListener('click', function () {
-  createSendButton = document.createElement('input');
-
-  //create send button when message input box is created
-  createSendButton.type = 'button';
-  createSendButton.id = 'send-button';
-  createSendButton.value = 'Send';
-
-  const container = document.getElementById('send-message-div');
-  container.appendChild(createSendButton);
-
-  const checkMessageEmpty = document.getElementById('send-button');
-
-  // when send button is clicked...
-  checkMessageEmpty.addEventListener('click', function () {
-    const messageInput = document.getElementById('bottle-message-textarea');
-
-    // check if textarea is empty?
-    if (messageInput.value.trim() === '') {
-      // Textarea is empty
-      console.error('Bottle is empty. ꭕ');
-    } else {
-      // Textarea has content
-      console.log('Bottle has a message. √');
-    }
-  });
-}); */
-
-// Text box has max character limit
-
-// add submit/send button for sending message, on click. Send button changes blue. Text box then disappears.
-
-// confirmation message to user that bottle has been sent. Display for 2(?) seconds.
