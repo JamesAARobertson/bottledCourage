@@ -5,13 +5,15 @@ import cors from "cors";
 
 const app = express();
 
-app.use(cors({
-        origin: '*'
-    }));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(express.static("public"));
 app.use("/api/", bottlesRouter);
 
 export default app;
-
