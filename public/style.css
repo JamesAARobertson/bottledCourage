@@ -23,6 +23,9 @@ body {
     
     /* How the first the quotes appear line 13 */
     .original-message-div {
+    background-image: "../assets/bottle.png";
+   height: 400px;
+   width: 100%;
     width: auto;
     border: 1px rgb(116, 116, 116) solid;
     border-radius: 2rem;
