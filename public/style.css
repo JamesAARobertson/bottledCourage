@@ -75,7 +75,7 @@ body {
         justify-content: right;
     }
     
-    #send-button {
+    #buttonToSendMessageToServer {
         padding: 1rem;
         max-width: 20%;
         min-width: 20%;
@@ -139,7 +139,6 @@ body {
         left: 0;
         z-index: 1; /* Ensure the button is on top of the pseudo-element */
         overflow: hidden; /* Hide any content outside the div */
-        bor
     }
 
     #new-message-div::before {
@@ -149,13 +148,13 @@ body {
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(112, 112, 112, 0.4); /* Adjust the opacity as needed */
+        background-color: rgba(112, 112, 112, 0.1); /* Adjust the opacity as needed */
         z-index: -1; /* Place it behind the content */
     }
     
     
     /* "Message in a bottle" submit button */
-    #send-message-button{
+    #buttonToOpenTextBox{
         padding: 1rem;
         padding-left: 02;
         max-width: 100%;
@@ -173,7 +172,7 @@ body {
     
     
     /* input textbox created by clicking "Message in a bottle" */
-    #bottle-message-textarea{
+    #textboxForMessage{
         font-size: 1rem;
     
         border: 1px inset black;
