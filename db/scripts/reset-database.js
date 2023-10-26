@@ -4,89 +4,27 @@ import { resetAllTables } from "../helpers.js";
 try {
     const insertedRows = await resetAllTables(
         [
-            { message: "I am feeling great today!", timestamp: "2023-10-25" },
-            { message: "I am loving databases!", timestamp: "2023-10-25" },
-            { message: "Front end devs are cool :)", timestamp: "2023-10-25" },
-            {
-                message: "JavaScript is such a versatile language!",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "I'm diving deep into async functions today.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Just solved a challenging bug!",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "APIs make the world go round.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Debugging is like solving a puzzle.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Coding is both art and science.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Frameworks make development faster.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "I just deployed a new feature!",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Refactoring code is satisfying.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "I'm experimenting with new libraries.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Responsive design is crucial.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Performance optimization is key.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Today, I learned about closures.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Promises make async tasks easier.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "I love the flexibility of JS.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Web development is constantly evolving.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "I'm diving into server-side JS.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "New ES features are so exciting!",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "Functional programming is intriguing.",
-                timestamp: "2023-10-25",
-            },
-            {
-                message: "I just completed a coding challenge!",
-                timestamp: "2023-10-25",
-            },
+                { "message": "JavaScript is a sandbox of endless possibilities! 🌈", "timestamp": "2023-10-25" },
+                { "message": "Async functions are like magic! 🎩 Time-travel, anyone?", "timestamp": "2023-10-25" },
+                { "message": "Cracked that bug! I'm like a code detective 🕵️‍♂️.", "timestamp": "2023-10-25" },
+                { "message": "APIs are the message in a bottle that the internet needed. Totally connected 🌍!", "timestamp": "2023-10-25" },
+                { "message": "Debugging is like a fun treasure hunt 🗺️!", "timestamp": "2023-10-25" },
+                { "message": "Coding is an art form where the canvas never ends 🎨!", "timestamp": "2023-10-25" },
+                { "message": "Frameworks are like coding cheat codes! Speed run 🏃‍♀️.", "timestamp": "2023-10-25" },
+                { "message": "New feature just went live! This is like launching a spaceship 🚀.", "timestamp": "2023-10-25" },
+                { "message": "Refactoring is my therapy session for the week. So clean, so pure 💧.", "timestamp": "2023-10-25" },
+                { "message": "Trying out new libraries is like opening a box of chocolates 🍫. You never know what you're gonna get!", "timestamp": "2023-10-25" },
+                { "message": "JavaScript, why do you have so many quirks? 🤔", "timestamp": "2023-10-25" },
+{ "message": "Async functions, you're like a Rubik's cube that keeps changing colors 🎨!", "timestamp": "2023-10-25" },
+{ "message": "Finally fixed that bug, but at what cost? My sanity? 💆‍♂️", "timestamp": "2023-10-25" },
+{ "message": "APIs are like messages in a bottle that sometimes don't reach shore. Why 404, why?! 🌊", "timestamp": "2023-10-25" },
+{ "message": "Debugging is like a never-ending escape room 🚪.", "timestamp": "2023-10-25" },
+{ "message": "Is coding art or science? Right now, it feels like a cruel joke 🃏.", "timestamp": "2023-10-25" },
+{ "message": "Frameworks, y u have so many dependencies? 😭", "timestamp": "2023-10-25" },
+{ "message": "Deployed a new feature but now everything else is broken. Rolling back! 🔄", "timestamp": "2023-10-25" },
+{ "message": "Refactoring is like a message in a bottle that I wish I found sooner. Cleanup on aisle 5 🧹.", "timestamp": "2023-10-25" },
+{ "message": "Experimenting with new libraries like juggling flaming torches 🤹‍♂️.", "timestamp": "2023-10-25" },
+               
         ],
         [
             { comment: "Good for you", timestamp: "2023-10-26", bottle_id: 1 },
