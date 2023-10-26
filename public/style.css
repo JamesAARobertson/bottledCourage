@@ -132,16 +132,25 @@ body {
         align-items: center;
         text-align: center;
         display: grid;
-        grid-template-rows: 1f;
-        background-color: #707070;
+        grid-template-rows: 1fr;
         position: fixed;
         bottom: 0;
         left: 0;
-        opacity: 0.5;
-    
+        z-index: 1; /* Ensure the button is on top of the pseudo-element */
+        overflow: hidden; /* Hide any content outside the div */
     }
-    /* #new-message-div:: before {
-         */
+
+    #new-message-div::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(rgba(112, 112, 112, 0.7), rgba(112, 112, 112, 0.7)); /* Adjust the opacity as needed */
+        z-index: -1; /* Place it behind the content */
+    }
+    
     
     /* "Message in a bottle" submit button */
     #send-message-button{
