@@ -1,4 +1,5 @@
-createSendButton = document.createElement('input');
+const bottleSendButton = document.createElement('input');
+const messageInput = document.getElementById('bottle-message-textarea');
 const PORT = 4000;
 // fetch bottle
 async function getBottle() {
@@ -19,7 +20,6 @@ async function getBottle() {
   //console.log(responseRequest);
   console.log(await responseData.payload[0]['message']);
 }
-getBottle()
 
 // get "Message in a bottle button" by id.
 const newBottleMessage = document.getElementById('send-message-button');
@@ -44,25 +44,31 @@ newBottleMessage.addEventListener('click', function () {
   const messageInput = document.getElementById('textbox');
   messageInput.appendChild(newBottleInput);
 });
-async function postBottle() {
-  fetch('/api/', {
+async function postBottle(message) {
+  fetch(`http://localhost:${PORT}/api/`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json charset= utf-8',
+      'Content-Type': 'application/json; charset= utf-8',
     },
-    body: JSON.stringify({ key: 'value' }),
-  })
-    .then((response) => response.json())
-    .then((data) => {})
-    .catch((error) => {
-      console.error('No data input');
-    });
+    body: JSON.stringify({ message: message }),
+  }).then((response) => {
+    if (!response.ok) {
+      console.error('Error posting the message to the backend');
+    } else {
+      console.log('Message sent successfully');
+    }
+  });
 }
-createSendButton.addEventListener('click', async (event) => {
-  event.preventDefault();
-  const dataSent = new FormData(event.target);
-  const message = dataSent.get('message');
-  await postBottle(message);
+let message = 'its selam , hello';
+postBottle(message);
+bottleSendButton.addEventListener('click', async () => {
+  // check if text area is empty
+  if (messageInput.value.trim() === '') {
+    console.error('Bottle is empty');
+  } else {
+    console.log('Bottle recieved');
+    postBottle(messageInput.value);
+  }
 });
 
 // postBottle;
