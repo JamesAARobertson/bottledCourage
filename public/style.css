@@ -3,23 +3,22 @@ font-family: Arial, Helvetica, sans-serif;
 max-width: 100%;
 max-height: 100%;
 margin: 0px;
-
 }
 #header-container{
-    display:flex;
+    display: flex;
+    
 }
 /* Today's reflections line 11*/
 h1 {
-margin-top: 1rem;
 margin-left: 1rem;
-margin-top: 2rem;
+margin-top: 2.5rem;
 margin-bottom: 2rem;
 font-size: 1.2rem;
 letter-spacing: 0.2rem;
 }
 
 figure img {
-    width: 20vw;
+    width: 25vw;
 }
 
 /* How the first the quotes appear line 13 */
@@ -31,17 +30,18 @@ border-bottom-left-radius: 0;
 border-bottom-right-radius: 0;
 padding: 1rem;
 padding-top: 3rem;
-padding-bottom: 3rem;
+padding-bottom: 1rem;
 text-align: center;
-height: 100vh;
+height: 80vh;
 max-height: 100vh;
 background-color: #979797;
 }
 
 /* when people respond to a quote in chat - line 19-22 */
 .bottle-replies-div{
-border: 1px black solid;
+border: 0.1rem black solid;
 border-radius: 2rem;
+box-shadow: 0.2rem 0.2rem 1rem #000000a8;
 padding: 2rem;
 text-align: center;
 max-height: 100vh;
@@ -64,31 +64,80 @@ p {
     line-height: 1.4rem;
 }
 
-/* reffering to div on line 29. recentering the button */
-#submit-container{
+#send-message-div {
     display: flex;
+    justify-content: right;
+}
+
+#send-button {
+    padding: 1rem;
+    max-width: 20%;
+    min-width: 20%;
+    border-radius: 0.5rem;
+    border: black 0.1rem solid;
+    box-shadow: 5px 5px 5px rgba(92, 92, 92, 50);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease;
+    padding: 0.1rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    justify-content: right;
+    position: fixed;
+  
+}
+
+
+#submit-new-message{
+    padding: 1rem;
+    max-width: 20%;
+    min-width: 20%;
+    border-radius: 0.5rem;
+    border: black 0.1rem solid;
+    box-shadow: 5px 5px 5px rgba(92, 92, 92, 50);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease;
+    padding: 0.1rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    justify-content: right;
+    position: fixed;
+}
+
+/* reffering to div on line 29. recentering the button */
+#new-message-container{
+    display: grid;
     justify-content: center;
 }
 
-/* the dark grey box that send is sitting in. line 31 */
-#send-message-div {
+
+
+/* the dark grey box that "Message in a bottle" is sitting in. line 31 */
+#new-message-div {
     height: 20vh;
-    max-width: 100%;
-    width: 100%;
+    max-width: 100vw;
+    width: 100vw;
     border: 1px black solid;
     border-radius: 2rem;
-    align-items: center;
-    display: flex;
     justify-content: center;
-    background-color: #707070;
+    align-items: center;
     text-align: center;
+    display: grid;
+    grid-template-rows: 1f;
+    background-color: #707070;
     position: fixed;
     bottom: 0;
+    left: 0;
+
 }
 
-
+/* "Message in a bottle" submit button */
 #send-message-button{
     padding: 1rem;
+    padding-left: 02;
     max-width: 100%;
     min-width: 50%;
     border-radius: 0.5rem;
@@ -98,11 +147,40 @@ p {
     font-weight: 600;
     margin-bottom: 2rem;
     transition: background-color 0.3s ease;
+    grid-row: 2;
+    
 }
 
-.bottleMessage{
-    height: 1rem;
+
+/* input textbox created by clicking "Message in a bottle" */
+#bottle-message-textarea{
+    font-size: 1rem;
+
+    border: 1px inset black;
+    border-radius: 1rem;
+
+    padding: 1rem;
+
+    animation: grow 0.5s;
+    animation-fill-mode: both;
 }
+
+
+@keyframes grow {
+    from {
+          width: 150px;
+          height: 40px;
+        }
+    to {
+          width: 80vw;
+          height: 90px;
+        }
+    }
+      
+     
+
+
+
 
 /* This is animating the message in a bottle button */
 #send-message-button:active {
@@ -115,9 +193,11 @@ p {
 @keyframes shake {
     10%, 90% {
         transform: translateX(-2px);
+        transform: translateY(2px)
     }
     20%, 80% {
         transform: translateX(2px);
+        transform: translateY(-2px)
     }
     30%, 50%, 70% {
         transform: translateX(-2px);
@@ -126,3 +206,6 @@ p {
         transform: translateX(2px);
     }
 }
+
+
+

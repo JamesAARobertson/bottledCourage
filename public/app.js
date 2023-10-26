@@ -1,4 +1,4 @@
-// on hover over Message in a bottle, change color/highlight.
+// fetch bottle
 async function getBottle() {
         const responseRequest = await fetch("http://localhost:3500/api/", {
                 method: `GET`,
@@ -19,32 +19,68 @@ async function getBottle() {
 }
 
 getBottle();
-// get Message in a bottle button by id. On click opens up input/textbox. Open's keyboard.
-const submitButton = document.getElementById("send-message-button");
+// get "Message in a bottle button" by id.
+const newBottleMessage = document.getElementById("send-message-button");
 
-submitButton.addEventListener("click", function () {
-    const existingInput = document.getElementById("myTextbox");
+// On click opens up input/textbox.
+newBottleMessage.addEventListener("click", function(){
+    
+    // create textarea for user to write new message in
+    newBottleInput = document.createElement("textarea");
+    // create new send/submit button
+    
+    // remove "Message in a bottle" button.
+    newBottleMessage.remove();
 
-    if (!existingInput) {
-    }
-
-    const inputElement = document.createElement("input");
-
-    // Set attributes for the input element
-    inputElement.type = "text"; // Text input
-    inputElement.id = "bottleMessage"; // ID for reference
-    inputElement.name = "userInput"; // Name attribute
+    // Set attributes for the input/textarea element
+    newBottleInput.type = "text";    // Text input
+    newBottleInput.id = "bottle-message-textarea";  // ID for reference
+    newBottleInput.name = "usertextarea"; // Name attribute
+    newBottleInput.placeholder = "Write a message in your bottle... (Max 100 characters)" // Placeholder text in textarea
 
     // Add the input element to the container div
-    const container = document.getElementById("textbox");
-    container.appendChild(inputElement);
-});
+    const messageInput = document.getElementById("textbox");
+    messageInput.appendChild(newBottleInput);
+
+
+})
+
+newBottleMessage.addEventListener("click", function(){
+
+createSendButton = document.createElement("input");
+
+  //create send button when message input box is created
+  createSendButton.type = "button";
+  createSendButton.id = "send-button";
+  createSendButton.value = "Send";
+
+  const container = document.getElementById("send-message-div");
+  container.appendChild(createSendButton);
+
+  const checkMessageEmpty = document.getElementById("send-button");
+
+
+
+// when send button is clicked...
+checkMessageEmpty.addEventListener("click", function(){
+
+const messageInput = document.getElementById("bottle-message-textarea");
+
+    // check if textarea is empty?
+    if (messageInput.value.trim() === '') {
+        // Textarea is empty
+        console.error('Bottle is empty. ꭕ');
+    } else {
+        // Textarea has content
+        console.log('Bottle has a message. √');
+    }
+
+    })
+})
+
+
 // Text box has max character limit
 
 // add submit/send button for sending message, on click. Send button changes blue. Text box then disappears.
 
-// confirmation message to user that bottle has been sent. Display for 2 seconds.
-
-// randomisation of messages displayed on home screen
-
-//
+// confirmation message to user that bottle has been sent. Display for 2(?) seconds.
