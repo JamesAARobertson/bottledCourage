@@ -37,9 +37,12 @@ export async function resetAllTables(data, commentData) {
                         FROM json_populate_recordset(NULL::bottles, $1::JSON)
                 )
                 RETURNING *;
-                `, [JSON.stringify(data)]);
+                `,
+    [JSON.stringify(data)]
+  );
 
-  const insertedComments = await pool.query( `
+  const insertedComments = await pool.query(
+    `
         INSERT INTO comments (
                 comment,
                 timestamp,
