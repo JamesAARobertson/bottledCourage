@@ -139,7 +139,6 @@ body {
         left: 0;
         z-index: 1; /* Ensure the button is on top of the pseudo-element */
         overflow: hidden; /* Hide any content outside the div */
-        bor
     }
 
     #new-message-div::before {
@@ -149,7 +148,7 @@ body {
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(112, 112, 112, 0.4); /* Adjust the opacity as needed */
+        background-color: rgba(112, 112, 112, 0.1); /* Adjust the opacity as needed */
         z-index: -1; /* Place it behind the content */
     }
     

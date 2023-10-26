@@ -61,8 +61,12 @@ async function getBottles() {
     const thirdBottleContainer = document.getElementById("bottle-reply-3");
     thirdBottleContainer.innerHTML = arrayOfBottleMessages[2]
 }
-
-getBottles()
+// event lister to collect bottles on page load
+window.addEventListener("load", (event) => {
+    console.log("page is fully loaded")
+    getBottles()
+  });
+// getBottles()
 
 async function postBottle(message) {
     fetch(`http://localhost:${PORT}/api/`, {
