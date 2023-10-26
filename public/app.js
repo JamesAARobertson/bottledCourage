@@ -20,7 +20,7 @@ buttonToOpenTextBox.addEventListener("click", function () {
     textboxForMessage.id = "textboxForMessage"; // ID for reference
     textboxForMessage.name = "usertextarea"; // Name attribute
     textboxForMessage.placeholder =
-        "Write a message in your bottle... (Max 100 characters)"; // Placeholder text in textarea
+        "Write a message in your bottle... (Max 255 characters)"; // Placeholder text in textarea
 
     divForNewMessageTextbox.appendChild(textboxForMessage);
 
