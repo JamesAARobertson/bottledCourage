@@ -1,31 +1,91 @@
-const bottleSendButton = document.createElement('input');
-const messageInput = document.getElementById('bottle-message-textarea');
+// Defining DOM variables
+
+const buttonToOpenTextBox = document.getElementById("buttonToOpenTextBox");
+const divForNewMessageTextbox = document.getElementById(
+    "divForNewMessageTextbox"
+);
+const buttonToSendMessageToServer = document.getElementById("buttonToSendMessageToServer")
+
+// On click opens up input/textbox.
+buttonToOpenTextBox.addEventListener("click", function () {
+    // create textarea for user to write new message in
+    textboxForMessage = document.createElement("textarea");
+    // create new send/submit button
+
+    // remove "Message in a bottle" button.
+    buttonToOpenTextBox.remove();
+
+    // Set attributes for the input/textarea element
+    textboxForMessage.type = "text"; // Text input
+    textboxForMessage.id = "textboxForMessage"; // ID for reference
+    textboxForMessage.name = "usertextarea"; // Name attribute
+    textboxForMessage.placeholder =
+        "Write a message in your bottle... (Max 100 characters)"; // Placeholder text in textarea
+
+    divForNewMessageTextbox.appendChild(textboxForMessage);
+
+    buttonToSendMessageToServer.hidden = false;
+
+/*     //create send button when message input box is created
+    buttonToSendMessageToServer.type = "button";
+    buttonToSendMessageToServer.id = "buttonToSendMessageToServer";
+    buttonToSendMessageToServer.value = "Send";
+
+    const divForSendMessageButton = document.getElementById(
+        "divForSendMessageButton"
+    );
+    divForSendMessageButton.appendChild(buttonToSendMessageToServer); */
+});
+
 const PORT = 4000;
 // fetch bottle
 async function getBottle() {
-  const responseRequest = await fetch(`http://localhost:${PORT}/api/`, {
-    method: `GET`,
-    headers: {
-      Accept: 'application/json',
-    },
-  });
+    const responseRequest = await fetch(`http://localhost:${PORT}/api/`, {
+        method: `GET`,
+        headers: {
+            Accept: "application/json",
+        },
+    });
 
-  if (!responseRequest.ok) {
-    console.error(`Status: ${responseRequest.status}`);
-    console.error(`Text: ${await responseRequest.text()}`);
-    console.error('Data not available');
-    return;
-  }
-  const responseData = await responseRequest.json();
-  //console.log(responseRequest);
-  console.log(await responseData.payload[0]['message']);
+    if (!responseRequest.ok) {
+        console.error(`Status: ${responseRequest.status}`);
+        console.error(`Text: ${await responseRequest.text()}`);
+        console.error("Data not available");
+        return;
+    }
+    const responseData = await responseRequest.json();
+
+    console.log(await responseData.payload[0]["message"]);
 }
 
-// get "Message in a bottle button" by id.
-const newBottleMessage = document.getElementById('send-message-button');
+async function postBottle(message) {
+    fetch(`http://localhost:${PORT}/api/`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json; charset= utf-8",
+        },
+        body: JSON.stringify({ message: message }),
+    }).then((response) => {
+        if (!response.ok) {
+            console.error("Error posting the message to the backend");
+        } else {
+            console.log("Message sent successfully");
+        }
+    });
+}
 
-// On click opens up input/textbox.
-newBottleMessage.addEventListener('click', function () {
+// postBottle("Hello world")
+
+buttonToSendMessageToServer.addEventListener("click", async () => {
+    // check if text area is empty
+    const textboxForMessage = document.getElementById("textboxForMessage")
+
+        postBottle(textboxForMessage.value);
+
+});
+
+/* // On click opens up input/textbox.
+buttonToOpenTextBox.addEventListener('click', function () {
   // create textarea for user to write new message in
   newBottleInput = document.createElement('textarea');
   // create new send/submit button
@@ -40,38 +100,11 @@ newBottleMessage.addEventListener('click', function () {
   newBottleInput.placeholder =
     'Write a message in your bottle... (Max 100 characters)'; // Placeholder text in textarea
 
-  // Add the input element to the container div
-  const messageInput = document.getElementById('textbox');
-  messageInput.appendChild(newBottleInput);
-});
-async function postBottle(message) {
-  fetch(`http://localhost:${PORT}/api/`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json; charset= utf-8',
-    },
-    body: JSON.stringify({ message: message }),
-  }).then((response) => {
-    if (!response.ok) {
-      console.error('Error posting the message to the backend');
-    } else {
-      console.log('Message sent successfully');
-    }
-  });
-}
-let message = 'its selam , hello';
-postBottle(message);
-bottleSendButton.addEventListener('click', async () => {
-  // check if text area is empty
-  if (messageInput.value.trim() === '') {
-    console.error('Bottle is empty');
-  } else {
-    console.log('Bottle recieved');
-    postBottle(messageInput.value);
-  }
-});
 
-// postBottle;
+  messageInput.appendChild(newBottleInput);
+}); */
+
+/* // postBottle;
 newBottleMessage.addEventListener('click', function () {
   createSendButton = document.createElement('input');
 
@@ -98,7 +131,7 @@ newBottleMessage.addEventListener('click', function () {
       console.log('Bottle has a message. √');
     }
   });
-});
+}); */
 
 // Text box has max character limit
 

@@ -30,8 +30,15 @@
     
     <img src="assets\bottle.jpg" alt="bottleimage">
         <!-- div for send button to be appended to -->
-        <div id="send-message-div">
-            <!-- <button type="submit" id="send-message-button">Send</button> -->
+        <div id="divForSendMessageButton">
+            <!--     buttonToSendMessageToServer = document.createElement("input");
+
+    //create send button when message input box is created
+    buttonToSendMessageToServer.type = "button";
+    buttonToSendMessageToServer.id = "buttonToSendMessageToServer";
+    buttonToSendMessageToServer.value = "Send";
+ -->
+ <input type="button" id="buttonToSendMessageToServer" value="Send"></div>
         </div>
 
         <!-- Setting up the container to position the message in a bottle button-->
@@ -39,8 +46,8 @@
 
             <!--message in a bottle submit button-->
             <div id="new-message-div">
-                <button type="submit" id="send-message-button">Message in a bottle</button>
-                <div id="textbox">
+                <button type="submit" id="buttonToOpenTextBox">Message in a bottle</button>
+                <div id="divForNewMessageTextbox">
                 <!-- Created textarea appears here (when "Message in a bottle" is clicked) -->
                 </div>
             </div>
