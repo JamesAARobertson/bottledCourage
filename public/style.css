@@ -23,8 +23,12 @@ body {
     
     /* How the first the quotes appear line 13 */
     .original-message-div {
+    background-image: url(../assets/bottle.png);/* Set the image URL */
+    background-size: cover; /* Cover the entire element */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
     width: auto;
-    border: 1px rgb(116, 116, 116) solid;
+    border: 1px rgb(116, 116, 116) solid; */
     border-radius: 2rem;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -34,8 +38,9 @@ body {
     text-align: center;
     height: 80vh;
     max-height: 100vh;
-    background-color: #979797;
+    /* background-color: #979797; */
     }
+    
     
     /* when people respond to a quote in chat - line 19-22 */
     .bottle-replies-div{
