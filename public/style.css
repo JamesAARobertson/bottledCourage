@@ -138,8 +138,11 @@ body {
         position: fixed;
         bottom: 0;
         left: 0;
+        opacity: 0.5;
     
     }
+    /* #new-message-div:: before {
+         */
     
     /* "Message in a bottle" submit button */
     #send-message-button{
