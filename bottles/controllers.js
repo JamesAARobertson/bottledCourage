@@ -67,7 +67,8 @@ export async function deleteBottle(req, res) {
   }
 }
 
-export async function getRandomBottles(_req, res) {
+export async function getRandomBottles(req, res) {
+        console.log("Get random bottles has been called")
   const randomBottles = await bottlesModel.getRandomBottles();
 
   res.status(200).json({

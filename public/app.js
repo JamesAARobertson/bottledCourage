@@ -16,10 +16,10 @@ async function getBottle() {
     return;
   }
   const responseData = await responseRequest.json();
-  console.log(responseRequest);
-  console.log(responseData.payload[0]['message']);
+  //console.log(responseRequest);
+  console.log(await responseData.payload[0]['message']);
 }
-console.log(getBottle());
+getBottle()
 
 // get "Message in a bottle button" by id.
 const newBottleMessage = document.getElementById('send-message-button');
