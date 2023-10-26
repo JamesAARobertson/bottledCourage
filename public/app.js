@@ -1,10 +1,11 @@
-// Defining DOM variables
 
+// Defining DOM variables
 const buttonToOpenTextBox = document.getElementById("buttonToOpenTextBox");
 const divForNewMessageTextbox = document.getElementById(
     "divForNewMessageTextbox"
 );
 const buttonToSendMessageToServer = document.getElementById("buttonToSendMessageToServer")
+
 
 // On click opens up input/textbox.
 buttonToOpenTextBox.addEventListener("click", function () {
@@ -52,19 +53,46 @@ async function getBottles() {
         responseData.payload[2]["message"]
     ]
 
-    const firstBottleContainer = document.getElementById("bottle-reply-1");
+    const firstBottleContainer = document.getElementById("firstBottleMessage");
     firstBottleContainer.innerHTML = arrayOfBottleMessages[0]
 
-    const secondBottleContainer = document.getElementById("bottle-reply-2");
+    const firstBottleScore = document.querySelectorAll(".bottleScore")[0];
+    firstBottleScore.innerHTML = responseData.payload[0]["score"]
+
+    const secondBottleContainer = document.getElementById("secondBottleMessage");
     secondBottleContainer.innerHTML = arrayOfBottleMessages[1]
 
-    const thirdBottleContainer = document.getElementById("bottle-reply-3");
+    const secondBottleScore = document.querySelectorAll(".bottleScore")[1];
+    secondBottleScore.innerHTML = responseData.payload[1]["score"]
+
+    const thirdBottleContainer = document.getElementById("thirdBottleMessage");
     thirdBottleContainer.innerHTML = arrayOfBottleMessages[2]
+
+    const thirdBottleScore = document.querySelectorAll(".bottleScore")[2];
+    thirdBottleScore.innerHTML = responseData.payload[2]["score"]
+
+    // console.log(responseData.payload[0]["bottle_id"])
+    const arrayOfBottleIds = [
+        responseData.payload[0]["bottle_id"],
+        responseData.payload[1]["bottle_id"],
+        responseData.payload[2]["bottle_id"]
+    ] 
+
+    const elementOfBottleIds = document.getElementById("arrayOfBottleIds")
+    elementOfBottleIds.innerHTML = arrayOfBottleIds
+
+    return arrayOfBottleIds
 }
+
+
+
+
+
 // event lister to collect bottles on page load
-window.addEventListener("load", (event) => {
-    console.log("page is fully loaded")
-    getBottles()
+window.addEventListener("load", async (event) => {
+    // console.log("page is fully loaded")
+    await getBottles()
+    // console.log(arrayOfBottleIds)
   });
 // getBottles()
 

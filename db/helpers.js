@@ -11,7 +11,8 @@ export async function resetAllTables(data, commentData) {
         CREATE TABLE bottles (
                 bottle_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
                 message VARCHAR(255) NOT NULL,
-                timestamp TIMESTAMPTZ NOT NULL
+                timestamp TIMESTAMPTZ NOT NULL,
+                score VARCHAR(4) NOT NULL
 
                 )
                 `);
@@ -31,9 +32,10 @@ export async function resetAllTables(data, commentData) {
 
         INSERT INTO bottles (
                 message,
-                timestamp
+                timestamp,
+                score
                 ) (
-                        SELECT message, timestamp
+                        SELECT message, timestamp, score
                         FROM json_populate_recordset(NULL::bottles, $1::JSON)
                 )
                 RETURNING *;

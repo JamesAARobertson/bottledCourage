@@ -1,22 +1,24 @@
 import { pool } from "../db/index.js";
 
 export async function getAllBottles() {
-    const sqlQuery = "SELECT * FROM bottles ORDER BY id ASC;";
+    const sqlQuery = "SELECT * FROM bottles ORDER BY bottle_id ASC;";
     const result = await pool.query(sqlQuery);
     const bottles = result.rows;
     return bottles;
 }
 
 export async function getBottleById(bottleId) {
-        const sqlQuery = "SELECT * FROM bottles WHERE id = $1;";
+        //console.log("Get Bottle by ID Fired in model.js!")
+        const sqlQuery = "SELECT * FROM bottles WHERE bottle_id = $1;";
         const paramValues = [bottleId]
         const result = await pool.query(sqlQuery, paramValues)
         const bottle = result.rows[0]
+        // console.log(result.rows[0])
         return bottle;
 }
 
 export async function createBottle(newBottle) {
-    const sqlQuery = "INSERT INTO bottles (message, timestamp) VALUES ($1, $2) RETURNING *;";
+    const sqlQuery = "INSERT INTO bottles (message, timestamp, score) VALUES ($1, $2, 0) RETURNING *;";
     const paramValues = [newBottle.message, newBottle.timestamp];
     const result = await pool.query(sqlQuery, paramValues);
     const createdBottle = result.rows[0];
@@ -42,3 +44,18 @@ export async function getRandomBottles() {
 
 // console.log(await getRandomBottles())
 
+export async function updateBottleScore(bottle_id, message, timestamp, score) {
+        console.log("Update bottle score has been called in model.js");
+        console.log(`incoming data: ${bottle_id}, ${message}, ${timestamp}, ${score}`)
+        const sqlQuery = `UPDATE bottles
+        SET message = $2,
+            timestamp = $3,
+            score = $4
+        WHERE bottle_id = $1 
+        RETURNING *;`;
+        const paramValues = [bottle_id, message, timestamp, score]
+        const result = await pool.query(sqlQuery, paramValues)
+        const bottle = result.rows
+
+        return bottle
+}

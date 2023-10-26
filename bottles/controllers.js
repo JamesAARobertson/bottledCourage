@@ -14,7 +14,9 @@ export async function getAllBottles(req, res) {
 }
 
 export async function getBottleById(req, res) {
-  const bottleId = req.params.id;
+//console.log("Get Bottle by ID Fired in controllers.js!")
+  const bottleId = req.query["bottle_id"];
+  // console.log(bottleId)
   const retrievedBottle = await bottlesModel.getBottleById(bottleId);
   if (retrievedBottle) {
     res.status(200).json({
@@ -76,4 +78,19 @@ export async function getRandomBottles(req, res) {
     payload: randomBottles,
     // check this later
   });
+}
+
+export async function updateBottleScore(req, res) {
+        console.log("Update bottle score has been called in controllers.js");
+        const queryData = await req.body.bottleToBeUpdated
+       // const returnedUpdatedBottle = await bottlesModel.updateBottleScore(queryData)
+        const updatedObject = await bottlesModel.updateBottleScore(queryData.bottle_id, queryData.message, queryData.timestamp, queryData.score)
+        console.log(updatedObject)
+
+        if (queryData) {
+        res.status(200).json({
+                success: true,
+                payload: "Done",
+              });
+        }
 }
