@@ -1,21 +1,21 @@
 // fetch bottle
 async function getBottle() {
-        const responseRequest = await fetch("http://localhost:3500/api/", {
-                method: `GET`,
-                headers: {
-                    Accept: "application/json",
-                },
-            });
+    const responseRequest = await fetch("http://localhost:3500/api/", {
+            method: `GET`,
+            headers: {
+                Accept: "application/json",
+            },
+        });
 
-    if (!responseRequest.ok) {
-        console.error(`Status: ${responseRequest.status}`);
-        console.error(`Text: ${await responseRequest.text()}`);
-        console.error("Data not available");
-        return;
-    }
-    const responseData = await responseRequest.json();
-    console.log(responseRequest);
-    console.log(responseData.payload[0]["message"]);
+if (!responseRequest.ok) {
+    console.error(`Status: ${responseRequest.status}`);
+    console.error(`Text: ${await responseRequest.text()}`);
+    console.error("Data not available");
+    return;
+}
+const responseData = await responseRequest.json();
+console.log(responseRequest);
+console.log(responseData.payload[0]["message"]);
 }
 
 getBottle();
@@ -24,23 +24,23 @@ const newBottleMessage = document.getElementById("send-message-button");
 
 // On click opens up input/textbox.
 newBottleMessage.addEventListener("click", function(){
-    
-    // create textarea for user to write new message in
-    newBottleInput = document.createElement("textarea");
-    // create new send/submit button
-    
-    // remove "Message in a bottle" button.
-    newBottleMessage.remove();
 
-    // Set attributes for the input/textarea element
-    newBottleInput.type = "text";    // Text input
-    newBottleInput.id = "bottle-message-textarea";  // ID for reference
-    newBottleInput.name = "usertextarea"; // Name attribute
-    newBottleInput.placeholder = "Write a message in your bottle... (Max 100 characters)" // Placeholder text in textarea
+// create textarea for user to write new message in
+newBottleInput = document.createElement("textarea");
+// create new send/submit button
 
-    // Add the input element to the container div
-    const messageInput = document.getElementById("textbox");
-    messageInput.appendChild(newBottleInput);
+// remove "Message in a bottle" button.
+newBottleMessage.remove();
+
+// Set attributes for the input/textarea element
+newBottleInput.type = "text";    // Text input
+newBottleInput.id = "bottle-message-textarea";  // ID for reference
+newBottleInput.name = "usertextarea"; // Name attribute
+newBottleInput.placeholder = "Write a message in your bottle... (Max 100 characters)" // Placeholder text in textarea
+
+// Add the input element to the container div
+const messageInput = document.getElementById("textbox");
+messageInput.appendChild(newBottleInput);
 
 
 })
@@ -49,15 +49,15 @@ newBottleMessage.addEventListener("click", function(){
 
 createSendButton = document.createElement("input");
 
-  //create send button when message input box is created
-  createSendButton.type = "button";
-  createSendButton.id = "send-button";
-  createSendButton.value = "Send";
+//create send button when message input box is created
+createSendButton.type = "button";
+createSendButton.id = "send-button";
+createSendButton.value = "Send";
 
-  const container = document.getElementById("send-message-div");
-  container.appendChild(createSendButton);
+const container = document.getElementById("send-message-div");
+container.appendChild(createSendButton);
 
-  const checkMessageEmpty = document.getElementById("send-button");
+const checkMessageEmpty = document.getElementById("send-button");
 
 
 
@@ -66,16 +66,16 @@ checkMessageEmpty.addEventListener("click", function(){
 
 const messageInput = document.getElementById("bottle-message-textarea");
 
-    // check if textarea is empty?
-    if (messageInput.value.trim() === '') {
-        // Textarea is empty
-        console.error('Bottle is empty. ꭕ');
-    } else {
-        // Textarea has content
-        console.log('Bottle has a message. √');
-    }
+// check if textarea is empty?
+if (messageInput.value.trim() === '') {
+    // Textarea is empty
+    console.error('Bottle is empty. ꭕ');
+} else {
+    // Textarea has content
+    console.log('Bottle has a message. √');
+}
 
-    })
+})
 })
 
 
