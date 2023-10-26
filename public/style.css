@@ -24,7 +24,15 @@ body {
     figure img {
         width: 25vw;
     }
-    
+    header i{
+        font-size:1.5em;
+        position:absolute;
+        right:0px;
+        margin-top:4em;
+        margin-right: 1em;
+         color:#d2d2db;
+       
+    }
     /* How the first the quotes appear line 13 */
     .original-message-div {
         background-image: url(../assets/Bottle.png);/* Set the image URL */
@@ -127,7 +135,7 @@ body {
     
     /* the dark grey box that "Message in a bottle" is sitting in. line 31 */
     #new-message-div {
-        height: 20vh;
+        height: 15vh;
         max-width: 100vw;
         width: 100vw;
         border: 1px black solid;
@@ -147,20 +155,33 @@ body {
   
     }
    #buttonToOpenTextBox{
-    line-height: 40px;
+    /* line-height: 40px;
     width: 10em;
-    border-radius: 175px;
-    background:black;
-    border: white 2px solid;
  
-    font-size: 1em;;
-    perspective: 300px;
-    margin: 1.25em auto 0;
+    background:black;
+
+    /* background: url(http://1.bp.blogspot.com/-tXavBQFjNFQ/VMSaYaq7PtI/AAAAAAAADSc/awMPRe3yu5A/s1600/wood_pattern.png); */
+    color: white;
+
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    width: 8em;
+    font-size: large;
+    font-weight: 600;
+    border: 0.2rem solid black;
+    animation: wobble 2s ease;
   
-    padding:0.5em;
    }
   
+main i{
+    color:black;
+    font-size: 1.1em;
+    padding:0.1em
 
+}
     #new-message-div::before {
         content: "";
         position: absolute;
@@ -191,6 +212,15 @@ body {
         grid-row: 2;
         
     }
+    #send-message-button:before {
+        content: "\f017";
+        display: inline-block;
+        font: normal normal normal 14px/1;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
     
     
     /* input textbox created by clicking "Message in a bottle" */
