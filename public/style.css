@@ -60,56 +60,55 @@ header i {
 
 /* when people respond to a quote in chat - line 19-22 */
 .bottle-replies-div {
-        border: 0.1rem black solid;
-        border-radius: 2rem;
-        box-shadow: 0.2rem 0.2rem 1rem #000000a8;
-        padding: 2rem 0 2rem 0;
-        margin: 1.5rem 1rem 1.5rem 1rem;
-        max-height: 100vh;
-        background: #efeee999;
-        display: flex;
+    border: 0.1rem black solid;
+    border-radius: 2rem;
+    box-shadow: 0.2rem 0.2rem 1rem #000000a8;
+    padding: 2rem 0 2rem 0;
+    margin: 1.5rem 1rem 1.5rem 1rem;
+    max-height: 100vh;
+    background: #efeee999;
+    display: flex;
 }
 
 .voteContainer {
-        width: 15%;
-        display:block;
-        padding: auto;
-        margin: auto;
-        border-right: solid 1px #9b9b9b;
-        font-size: 2em;
+    width: 15%;
+    display: block;
+    padding: auto;
+    margin: auto;
+    border-right: solid 1px #9b9b9b;
+    font-size: 2em;
 }
 
 .upvoteContainer {
-        padding: 0 0.5rem 0.5rem 1rem;
-        margin: 0.5rem 0 0 0;
-        border-bottom: solid 1px #9b9b9b;
-
+    padding: 0 0.5rem 0.5rem 1rem;
+    margin: 0.5rem 0 0 0;
+    border-bottom: solid 1px #9b9b9b;
 }
 
 .downvoteContainer {
-        padding: 0.5rem 0.5rem 0 1rem;
-        margin: 0 0 0.5rem 0;
+    padding: 0.5rem 0.5rem 0 1rem;
+    margin: 0 0 0.5rem 0;
 }
 
-.bottleMessages  {
-        width: 75%;
-        text-align: center;
-        padding: 0 2vw 0 2vw;
-        margin:auto;
-    }
+.bottleMessages {
+    width: 75%;
+    text-align: center;
+    padding: 0 2vw 0 2vw;
+    margin: auto;
+}
 
 .bottleScore {
-        width: 10%;
-        display:block;
-        text-align: center;
-        padding: 1rem 0.5rem 1rem 0.5rem;
-        margin: auto;
-        border-left: solid 1px #9b9b9b;
+    width: 10%;
+    display: block;
+    text-align: center;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    margin: auto;
+    border-left: solid 1px #9b9b9b;
 }
 
 .bottleScore p {
-        padding: 0;
-        margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 #replies-background-buffer {
@@ -123,14 +122,13 @@ p {
     line-height: 1.4rem;
 }
 
-
 #send-message-div {
     display: flex;
     justify-content: right;
 }
 
 #buttonToSendMessageToServer {
-    padding: 1rem;
+/*     padding: 1rem;
     max-width: 20%;
     min-width: 20%;
     border-radius: 0.5rem;
@@ -144,13 +142,13 @@ p {
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
     justify-content: right;
-    position: fixed;
-  right: 0px;
-  margin: 1px;
-  font-size: 1.8em;
-  margin-left: 1.8em;
-  position: absolute;
-  color: rgb(33, 49, 78);
+    position: fixed; */
+    right: 0px;
+    margin: 1px;
+    font-size: 1.8em;
+    margin-left: 1.8em;
+    position: absolute;
+    color: rgb(33, 49, 78);
 }
 
 #submit-new-message {
@@ -197,7 +195,7 @@ p {
     overflow: hidden; /* Hide any content outside the div */
 }
 #textboxForMessage {
-  margin-right: 1.3em;
+    margin-right: 1.3em;
 }
 #buttonToOpenTextBox {
     /* line-height: 40px;

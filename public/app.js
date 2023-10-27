@@ -4,9 +4,7 @@ const buttonToOpenTextBox = document.getElementById("buttonToOpenTextBox");
 const divForNewMessageTextbox = document.getElementById(
   'divForNewMessageTextbox'
 );
-const buttonToSendMessageToServer = document.getElementById(
-  'buttonToSendMessageToServer'
-);
+
 const buttonToSendMessageToServer = document.getElementById("buttonToSendMessageToServer")
 
 
