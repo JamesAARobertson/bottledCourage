@@ -38,7 +38,7 @@ async function updateBottleScore(bottle_id, score) {
                 "score":score.toString()
             }
 
-            // Now I need to implement a PATCH route, and repack all that shit
+            // Now I need to implement a PATCH route and run this through
 
 
 const patchRequest = await fetch(`http://localhost:${PORT}/api/update/`, {
