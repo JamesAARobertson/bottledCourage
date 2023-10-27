@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Bebas+Neue&family=Luckiest+Guy&family=Orbitron&family=Signika:wght@300;400&family=Ubuntu:wght@300;400&display=swap');
 body {
-  font-family :'', Helvetica, sans-serif;
+  font-family: '', Helvetica, sans-serif;
   max-width: 100%;
   max-height: 100%;
   margin: 0px;
+  background-color: #efeee9;
 }
 @font-face {
-    font-family: PirateFont;
-    src: url('/skull-font/Skullsandcrossbones-RppKM.ttf');
-  }
+  font-family: PirateFont;
+  src: url('/skull-font/Skullsandcrossbones-RppKM.ttf');
+}
 #header-container {
   display: flex;
   background: #efeee9;
@@ -20,9 +21,6 @@ h1 {
   margin-bottom: 2rem;
   font-size: 1.2rem;
   letter-spacing: 0.2rem;
-}
-#bottle-reply-1{
-    border
 }
 
 figure img {
@@ -82,19 +80,18 @@ p {
   padding: auto;
   line-height: 1.4rem;
 }
-.bottle-replies-div{
-    /* background-color: ;
+.bottle-replies-div {
+  /* background-color: ;
     -webkit-box-shadow: 12px 5px 17px 0px rgba(43,175,137,0.93);
 box-shadow: 12px 5px 17px 0px rgba(43,175,137,0.93); */
-/* color:white; */
-background: #efeee999 ;
-
+  /* color:white; */
+  background: #efeee999;
 }
 #send-message-div {
   display: flex;
   justify-content: right;
 }
-
+/* 
 #buttonToSendMessageToServer {
   padding: 1rem;
   max-width: 20%;
@@ -111,6 +108,14 @@ background: #efeee999 ;
   padding-bottom: 0.4rem;
   justify-content: right;
   position: fixed;
+} */
+#buttonToSendMessageToServer {
+  right: 0px;
+  margin: 1px;
+  font-size: 1.8em;
+  margin-left: 1.8em;
+  position: absolute;
+  color: rgb(33, 49, 78);
 }
 
 #submit-new-message {
@@ -155,6 +160,9 @@ background: #efeee999 ;
   left: 0;
   z-index: 1; /* Ensure the button is on top of the pseudo-element */
   overflow: hidden; /* Hide any content outside the div */
+}
+#textboxForMessage {
+  margin-right: 1.3em;
 }
 #buttonToOpenTextBox {
   /* line-height: 40px;
