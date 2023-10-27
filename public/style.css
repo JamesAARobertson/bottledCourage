@@ -145,6 +145,12 @@ p {
     padding-bottom: 0.4rem;
     justify-content: right;
     position: fixed;
+  right: 0px;
+  margin: 1px;
+  font-size: 1.8em;
+  margin-left: 1.8em;
+  position: absolute;
+  color: rgb(33, 49, 78);
 }
 
 #submit-new-message {
@@ -189,6 +195,9 @@ p {
     left: 0;
     z-index: 1; /* Ensure the button is on top of the pseudo-element */
     overflow: hidden; /* Hide any content outside the div */
+}
+#textboxForMessage {
+  margin-right: 1.3em;
 }
 #buttonToOpenTextBox {
     /* line-height: 40px;
