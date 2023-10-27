@@ -27,9 +27,9 @@ async function updateBottleScore(bottle_id, score) {
                 },
             });
             const responseData = await responseRequest.json();
-            console.log(responseData.payload)
+           // console.log(responseData.payload)
 
-            console.log(responseData.payload.bottle_id)
+            //console.log(responseData.payload.bottle_id)
 
             const bottleToBeUpdated = {
                 "bottle_id":responseData.payload.bottle_id,
@@ -53,7 +53,7 @@ const patchRequest = await fetch(`http://localhost:${PORT}/api/update/`, {
     });
 
 
-    console.log(patchRequest)
+    // console.log(patchRequest)
     }
 
 
