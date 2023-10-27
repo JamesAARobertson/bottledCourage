@@ -18,7 +18,7 @@ export async function getBottleById(bottleId) {
 }
 
 export async function createBottle(newBottle) {
-    const sqlQuery = "INSERT INTO bottles (message, timestamp, score) VALUES ($1, $2, 0) RETURNING *;";
+    const sqlQuery = "INSERT INTO bottles (message, timestamp, score) VALUES ($1, $2, 1) RETURNING *;";
     const paramValues = [newBottle.message, newBottle.timestamp];
     const result = await pool.query(sqlQuery, paramValues);
     const createdBottle = result.rows[0];
