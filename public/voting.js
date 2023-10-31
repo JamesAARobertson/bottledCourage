@@ -15,7 +15,7 @@ bottles.forEach((bottle) => {
 
 // GET and PATCH by ID
 
-async function updateBottleScore(bottle_id, score) {
+async function updateBottleScore(bottle_id, upvote) {
     const responseRequest = await fetch(
         `http://localhost:${PORT}/api/id?bottle_id=${bottle_id}`,
         {
@@ -25,16 +25,14 @@ async function updateBottleScore(bottle_id, score) {
             },
         }
     );
-    const responseData = await responseRequest.json();
-    // console.log(responseData.payload)
 
-    //console.log(responseData.payload.bottle_id)
+    const responseData = await responseRequest.json();
 
     const bottleToBeUpdated = {
         bottle_id: responseData.payload.bottle_id,
         message: responseData.payload.message,
         timestamp: responseData.payload.timestamp,
-        score: score.toString(),
+        score: upvote,
     };
 
     // Now I need to implement a PATCH route and run this through
@@ -49,11 +47,8 @@ async function updateBottleScore(bottle_id, score) {
             bottleToBeUpdated,
         }),
     });
-
-    // console.log(patchRequest)
 }
 
-// Function to toggle vote
 function toggleVote(
     button,
     state,
@@ -85,13 +80,11 @@ bottles.forEach((bottle, index) => {
             (newState) => (newState ? 1 : -1) // Function to compute score change
         );
 
-        // Getting the bottle ID, to GET the original bottle, update the score then PATCH
         const votedBottleId = document
             .getElementById("arrayOfBottleIds")
             .innerHTML.split(",")[index];
-        const settledScore = bottleScores[index].innerText;
 
-        updateBottleScore(votedBottleId, settledScore);
+        updateBottleScore(votedBottleId, voteCollector[bottle].upvote);
     });
 
     downvoteButtons[index].addEventListener("click", function () {
@@ -104,12 +97,10 @@ bottles.forEach((bottle, index) => {
             (newState) => (newState ? -1 : 1) // Function to compute score change
         );
 
-        // Getting the bottle ID, to GET the original bottle, update the score then PATCH
         const votedBottleId = document
             .getElementById("arrayOfBottleIds")
             .innerHTML.split(",")[index];
-        const settledScore = bottleScores[index].innerText;
 
-        updateBottleScore(votedBottleId, settledScore);
+        updateBottleScore(votedBottleId, !voteCollector[bottle].downvote);
     });
 });

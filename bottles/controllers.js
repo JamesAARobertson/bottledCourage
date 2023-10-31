@@ -81,9 +81,9 @@ export async function getRandomBottles(req, res) {
 }
 
 export async function updateBottleScore(req, res) {
-        console.log("Update bottle score has been called in controllers.js");
+
         const queryData = await req.body.bottleToBeUpdated
-       // const returnedUpdatedBottle = await bottlesModel.updateBottleScore(queryData)
+       
         const updatedObject = await bottlesModel.updateBottleScore(queryData.bottle_id, queryData.message, queryData.timestamp, queryData.score)
         console.log(updatedObject)
 

@@ -12,7 +12,7 @@ export async function resetAllTables(data, commentData) {
                 bottle_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
                 message VARCHAR(255) NOT NULL,
                 timestamp TIMESTAMPTZ NOT NULL,
-                score VARCHAR(4) NOT NULL
+                score INT NOT NULL
 
                 )
                 `);

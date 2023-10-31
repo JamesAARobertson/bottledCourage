@@ -45,15 +45,14 @@ export async function getRandomBottles() {
 // console.log(await getRandomBottles())
 
 export async function updateBottleScore(bottle_id, message, timestamp, score) {
-        console.log("Update bottle score has been called in model.js");
-        console.log(`incoming data: ${bottle_id}, ${message}, ${timestamp}, ${score}`)
+        const newScore = score === true ? "score + 1" : "score - 1"
         const sqlQuery = `UPDATE bottles
         SET message = $2,
             timestamp = $3,
-            score = $4
+            score = ${newScore}
         WHERE bottle_id = $1 
         RETURNING *;`;
-        const paramValues = [bottle_id, message, timestamp, score]
+        const paramValues = [bottle_id, message, timestamp]
         const result = await pool.query(sqlQuery, paramValues)
         const bottle = result.rows
 
