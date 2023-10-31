@@ -33,21 +33,23 @@ export async function getBottles() {
     }
     const responseData = await responseRequest.json();
 
-    const arrayOfBottleMessages = [
-        responseData.payload[0]["message"],
-        responseData.payload[1]["message"],
-        responseData.payload[2]["message"],
-    ];
+    const arrayOfBottleMessages = [];
+    const arrayOfBottleIds = [];
 
-    for (let i = 0; i < 3; i++) {
+    // Get messages and push it to the web page via DOM
+    for (let i = 0; i < responseData.payload.length; i++) {
+        arrayOfBottleMessages.push(responseData.payload[i]["message"]);
+        arrayOfBottleIds.push(responseData.payload[i]["bottle_id"]);
+        
         const messageContainer = document.getElementById(
             `${ordinal(i)}BottleMessage`
         );
         messageContainer.innerHTML = arrayOfBottleMessages[i];
-
+    
         const scoreElement = document.querySelectorAll(".bottleScore")[i];
         scoreElement.innerHTML = responseData.payload[i]["score"];
     }
+    
 
     function ordinal(num) {
         switch (num) {
@@ -62,11 +64,7 @@ export async function getBottles() {
         }
     }
 
-    const arrayOfBottleIds = [
-        responseData.payload[0]["bottle_id"],
-        responseData.payload[1]["bottle_id"],
-        responseData.payload[2]["bottle_id"],
-    ];
+
 
     const elementOfBottleIds = document.getElementById("arrayOfBottleIds");
     elementOfBottleIds.innerHTML = arrayOfBottleIds;

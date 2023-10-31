@@ -14,4 +14,5 @@ document
         const textboxForMessage = document.getElementById("textboxForMessage");
 
         func.postBottle(textboxForMessage.value);
+        textboxForMessage.value = ""
     });

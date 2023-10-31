@@ -1,3 +1,5 @@
+const PORT = 4000;
+
 // Mapping buttons to bottles
 const bottles = ["firstBottle", "secondBottle", "thirdBottle"];
 const upvoteButtons = document.querySelectorAll(".upvoteContainer");
