@@ -128,27 +128,13 @@ p {
 }
 
 #buttonToSendMessageToServer {
-/*     padding: 1rem;
-    max-width: 20%;
-    min-width: 20%;
-    border-radius: 0.5rem;
-    border: black 0.1rem solid;
-    box-shadow: 5px 5px 5px rgba(92, 92, 92, 50);
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    transition: background-color 0.3s ease;
-    padding: 0.1rem;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-    justify-content: right;
-    position: fixed; */
     right: 0px;
     margin: 1px;
     font-size: 1.8em;
     margin-left: 1.8em;
     position: absolute;
     color: rgb(33, 49, 78);
+    border-radius: 50%;
 }
 
 #submit-new-message {
@@ -194,9 +180,7 @@ p {
     z-index: 1; /* Ensure the button is on top of the pseudo-element */
     overflow: hidden; /* Hide any content outside the div */
 }
-#textboxForMessage {
-    margin-right: 1.3em;
-}
+
 #buttonToOpenTextBox {
     /* line-height: 40px;
     width: 10em;
@@ -250,6 +234,7 @@ main i {
     transition: background-color 0.3s ease;
     grid-row: 2;
 }
+
 #send-message-button:before {
     content: "\f017";
     display: inline-block;
@@ -260,18 +245,32 @@ main i {
     -moz-osx-font-smoothing: grayscale;
 }
 
+#sendBottleImage {
+    max-width: 1em;
+    margin: auto;
+}
+
 /* input textbox created by clicking "Message in a bottle" */
 #textboxForMessage {
     font-size: 1rem;
-
     border: 1px inset black;
     border-radius: 1rem;
-
     padding: 1rem;
+     animation: growBox 0.5s forwards;
 
-    animation: grow 0.5s;
-    animation-fill-mode: both;
+    /* Adjusting the size of the textarea */
+    height: 0px;   /* or whatever height you prefer */
+    width: 0px;    /* or whatever width you prefer */
+    margin: 1.3em auto;  /* centers the textarea if its parent is a block and has a width */
 }
+
+@keyframes growBox {
+    to {
+        height: 3rem;
+        width: 17rem;
+      }
+}
+
 
 @keyframes grow {
     from {

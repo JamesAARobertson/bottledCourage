@@ -1,5 +1,3 @@
-
-
 // Mapping buttons to bottles
 const bottles = ["firstBottle", "secondBottle", "thirdBottle"];
 const upvoteButtons = document.querySelectorAll(".upvoteContainer");
@@ -15,48 +13,45 @@ bottles.forEach((bottle) => {
     };
 });
 
-
 // GET and PATCH by ID
 
-
 async function updateBottleScore(bottle_id, score) {
-        const responseRequest = await fetch(`http://localhost:${PORT}/api/id?bottle_id=${bottle_id}`, {
-                method: `GET`,
-                headers: {
-                    Accept: "application/json",
-                },
-            });
-            const responseData = await responseRequest.json();
-           // console.log(responseData.payload)
+    const responseRequest = await fetch(
+        `http://localhost:${PORT}/api/id?bottle_id=${bottle_id}`,
+        {
+            method: `GET`,
+            headers: {
+                Accept: "application/json",
+            },
+        }
+    );
+    const responseData = await responseRequest.json();
+    // console.log(responseData.payload)
 
-            //console.log(responseData.payload.bottle_id)
+    //console.log(responseData.payload.bottle_id)
 
-            const bottleToBeUpdated = {
-                "bottle_id":responseData.payload.bottle_id,
-                "message":responseData.payload.message,
-                "timestamp":responseData.payload.timestamp,
-                "score":score.toString()
-            }
+    const bottleToBeUpdated = {
+        bottle_id: responseData.payload.bottle_id,
+        message: responseData.payload.message,
+        timestamp: responseData.payload.timestamp,
+        score: score.toString(),
+    };
 
-            // Now I need to implement a PATCH route and run this through
+    // Now I need to implement a PATCH route and run this through
 
-
-const patchRequest = await fetch(`http://localhost:${PORT}/api/update/`, {
+    const patchRequest = await fetch(`http://localhost:${PORT}/api/update/`, {
         method: `PATCH`,
         headers: {
             Accept: "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({
-               bottleToBeUpdated
-            })
+            bottleToBeUpdated,
+        }),
     });
 
-
     // console.log(patchRequest)
-    }
-
-
+}
 
 // Function to toggle vote
 function toggleVote(
@@ -91,10 +86,12 @@ bottles.forEach((bottle, index) => {
         );
 
         // Getting the bottle ID, to GET the original bottle, update the score then PATCH
-        const votedBottleId = document.getElementById("arrayOfBottleIds").innerHTML.split(",")[index]
-        const settledScore = bottleScores[index].innerText
+        const votedBottleId = document
+            .getElementById("arrayOfBottleIds")
+            .innerHTML.split(",")[index];
+        const settledScore = bottleScores[index].innerText;
 
-        updateBottleScore(votedBottleId, settledScore)
+        updateBottleScore(votedBottleId, settledScore);
     });
 
     downvoteButtons[index].addEventListener("click", function () {
@@ -107,11 +104,12 @@ bottles.forEach((bottle, index) => {
             (newState) => (newState ? -1 : 1) // Function to compute score change
         );
 
-                // Getting the bottle ID, to GET the original bottle, update the score then PATCH
-                const votedBottleId = document.getElementById("arrayOfBottleIds").innerHTML.split(",")[index]
-                const settledScore = bottleScores[index].innerText
-        
-                updateBottleScore(votedBottleId, settledScore)
+        // Getting the bottle ID, to GET the original bottle, update the score then PATCH
+        const votedBottleId = document
+            .getElementById("arrayOfBottleIds")
+            .innerHTML.split(",")[index];
+        const settledScore = bottleScores[index].innerText;
+
+        updateBottleScore(votedBottleId, settledScore);
     });
 });
-

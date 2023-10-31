@@ -1,35 +1,26 @@
 
-// Defining DOM variables
-const buttonToOpenTextBox = document.getElementById("buttonToOpenTextBox");
-const divForNewMessageTextbox = document.getElementById(
-  'divForNewMessageTextbox'
-);
-
 const buttonToSendMessageToServer = document.getElementById("buttonToSendMessageToServer")
 
 
-// On click opens up input/textbox.
-buttonToOpenTextBox.addEventListener('click', function () {
-  // create textarea for user to write new message in
-  textboxForMessage = document.createElement('textarea');
-  // create new send/submit button
+document.getElementById('buttonToOpenTextBox').addEventListener('click', openTextBox);
 
-  // remove "Message in a bottle" button.
-  buttonToOpenTextBox.remove();
-
-  // Set attributes for the input/textarea element
-  textboxForMessage.type = 'text'; // Text input
-  textboxForMessage.id = 'textboxForMessage'; // ID for reference
-  textboxForMessage.name = 'usertextarea'; // Name attribute
-  textboxForMessage.placeholder = 'Write a message in your bottle...'; // Placeholder text in textarea
-
-  divForNewMessageTextbox.appendChild(textboxForMessage);
-  divForNewMessageTextbox.style.width = '2%';
-  //   divForNewMessageTextbox.style.height = '5%';
-
-  buttonToSendMessageToServer.hidden = false;
-  buttonToSendMessageToServer.style.display = 'inline-block';
-});
+function openTextBox() {
+    // Get the required elements
+    const textboxForMessage = document.getElementById('textboxForMessage');
+    const buttonToSendMessageToServer = document.getElementById('buttonToSendMessageToServer');
+    const divForNewMessageTextbox = document.getElementById('divForNewMessageTextbox');
+    const buttonToOpenTextBox = document.getElementById('buttonToOpenTextBox');
+    
+    // Show the textarea and adjust its attributes
+    divForNewMessageTextbox.style.display = 'block';
+    divForNewMessageTextbox.style.width = '100%';  // Consider using CSS for this
+    
+    // Show the send button
+    buttonToSendMessageToServer.style.display = 'inline-block';
+    
+    // Remove the open text box button
+    buttonToOpenTextBox.remove();
+}
 
 const PORT = 4000;
 // fetch bottle
