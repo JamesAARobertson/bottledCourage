@@ -55,6 +55,7 @@ async function getBottles() {
         responseData.payload[2]["message"]
     ]
 
+
     const firstBottleContainer = document.getElementById("firstBottleMessage");
     firstBottleContainer.innerHTML = arrayOfBottleMessages[0]
 
@@ -78,7 +79,7 @@ async function getBottles() {
         responseData.payload[0]["bottle_id"],
         responseData.payload[1]["bottle_id"],
         responseData.payload[2]["bottle_id"]
-    ] 
+    ]
 
     const elementOfBottleIds = document.getElementById("arrayOfBottleIds")
     elementOfBottleIds.innerHTML = arrayOfBottleIds
