@@ -38,7 +38,7 @@ header i {
 
 /* How the first the quotes appear line 13 */
 .original-message-div {
-    background-image: url(./assets/Bottle.png); /* Set the image URL */
+    background-image: url(./assets/bottle.png); /* Set the image URL */
     background-size: cover; /* Cover the entire element */
     background-position: center; /* Center the image */
     background-repeat: no-repeat;
