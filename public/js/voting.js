@@ -64,7 +64,7 @@ function toggleVote(
     button.style.fontWeight = state ? "bold" : "normal";
     button.textContent = state ? symbol : symbol === "✓" ? "⇧" : "⇩";
     let currentScore = Number(scoreElement.textContent);
-    const scoreChange = computeScoreChange(state); // Call computeScoreChange to get the score change based on the new state
+    const scoreChange = computeScoreChange(state); // Call computeScoreChange to get the score change based on the new state ?_?
     scoreElement.textContent = (currentScore + scoreChange).toString();
 
     return state;
@@ -79,7 +79,7 @@ bottles.forEach((bottle, index) => {
             "✓",
             "green",
             bottleScores[index],
-            (newState) => (newState ? 1 : -1) // Function to compute score change
+            (newState) => (newState ? 1 : -1)
         );
 
         const votedBottleId = document
@@ -96,7 +96,7 @@ bottles.forEach((bottle, index) => {
             "✘",
             "red",
             bottleScores[index],
-            (newState) => (newState ? -1 : 1) // Function to compute score change
+            (newState) => (newState ? -1 : 1)
         );
 
         const votedBottleId = document

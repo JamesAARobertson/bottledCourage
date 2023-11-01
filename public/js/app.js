@@ -16,3 +16,4 @@ document
         func.postBottle(textboxForMessage.value);
         textboxForMessage.value = ""
     });
+
