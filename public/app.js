@@ -34,7 +34,7 @@ buttonToOpenTextBox.addEventListener('click', function () {
 const PORT = 10000;
 // fetch bottle
 async function getBottles() {
-  const responseRequest = await fetch(`http://localhost:${PORT}/api/`, {
+  const responseRequest = await fetch(`https://bottledcouragedeployment.onrender.com/api`, {
     method: `GET`,
     headers: {
       Accept: 'application/json',
