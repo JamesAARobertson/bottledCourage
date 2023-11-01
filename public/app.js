@@ -31,7 +31,7 @@ buttonToOpenTextBox.addEventListener('click', function () {
   buttonToSendMessageToServer.style.display = 'inline-block';
 });
 
-const PORT = 4000;
+const PORT = 10000;
 // fetch bottle
 async function getBottles() {
   const responseRequest = await fetch(`http://localhost:${PORT}/api/`, {
