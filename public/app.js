@@ -1,4 +1,4 @@
-
+//this is a comment :) //
 // Defining DOM variables
 const buttonToOpenTextBox = document.getElementById("buttonToOpenTextBox");
 const divForNewMessageTextbox = document.getElementById(
